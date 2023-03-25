@@ -1,12 +1,9 @@
+const utils = require("../lib/utils");
 const express = require("express");
 const router = express.Router();
-const utils = require("../lib/utils");
 
-// Get / 라우터
-router.get("/", (req, res) => {
-  res.send("Hello User!");
-});
-router.post("/", (req, res) => {
+exports.Join = (req, res) => {
+  console.log(req.body);
   const json = JSON.parse(JSON.stringify(req.body));
   console.log(json);
 
@@ -14,6 +11,4 @@ router.post("/", (req, res) => {
     success: "true",
   };
   utils.send(res, result);
-});
-
-module.exports = router;
+};
