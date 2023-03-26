@@ -5,7 +5,7 @@ let bodyParser = require("body-parser");
 
 const app = express();
 const path = require("path");
-const port = 3000;
+const port = 3001;
 
 /* set 라우터 */
 const indexRouter = require("./routes/index");
@@ -17,6 +17,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "2mb" })); //파서(기본)
 app.use(bodyParser.json()); //파서(json)
+
+/* 데이터 베이스 연결 */
+const nunjucks = require("nunjucks");
+const { sequelize } = require("./models/index");
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log("DB Connection Successfully");
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+/* ------------------------------------------------------------------- */
 
 app.set("port", process.env.PORT || port);
 
