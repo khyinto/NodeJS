@@ -5,7 +5,7 @@ let bodyParser = require("body-parser");
 
 const app = express();
 const path = require("path");
-const port = 3001;
+const port = 3000;
 
 /* set 라우터 */
 const indexRouter = require("./routes/index");

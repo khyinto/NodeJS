@@ -3,7 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 exports.Join = (req, res) => {
-  console.log(req.body);
   const json = JSON.parse(JSON.stringify(req.body));
   console.log(json);
 
