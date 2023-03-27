@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 
 class User extends Sequelize.Model {
-  static initate(sequelize) {
-    User.init(
+  static init(sequelize) {
+    return super.init(
       {
         name: {
           type: Sequelize.STRING(20),
@@ -39,6 +39,9 @@ class User extends Sequelize.Model {
       }
     );
   }
-  static associate(db) {}
+  // 다른 모델과의 관계를 설정한다.
+  static associate(db) {
+    db.User.hasMany(db.Comment, { foreignKey: "commenter", sourceKey: "id" });
+  }
 }
 module.exports = User;
