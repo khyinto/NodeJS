@@ -8,6 +8,7 @@
     "morgan": "^1.10.0",
     "mysql2": "^3.2.0",
     "nunjucks": "^3.2.3",
+    "prisma": "^4.11.0",
     "sequelize": "^6.30.0",
     "sequelize-cli": "^6.6.0"
   },

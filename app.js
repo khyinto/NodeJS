@@ -41,13 +41,15 @@ app.post("/", indexRouter);
 */
 
 app.use("/users", userRouter);
-app.post("/users", userRouter);
+//app.post("/users", userRouter);
 
-app.post("/users/login", loginRouter.Join); // 로그인
+//app.post("/users/login", loginRouter.Join); // 로그인
 
+/*
 app.get("/", (req, res) => {
   res.send("Hello World!!!");
 });
+*/
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
